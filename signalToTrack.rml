@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<TRestManager>
+
+<globals>
+	<!--
+    <variable name="AUTO_DAQ_PATH" value="${HOME}/quickAnaREST" overwrite="false" /> 
+    <variable name="READOUT_FILE" value="readouts.root" overwrite="false" /> 
+    <variable name="READOUT_NAME" value="SingleModule" overwrite="false" /> 
+    <variable name="GAS_NAME" value="Neon-Isobutane 2Pct 10-10E3Vcm" overwrite="false" />
+    <variable name="PRESSURE" value="1" overwrite="false" /> 
+    <variable name="ELECTRONICS" value="MultiFEMINOS" overwrite="false" />
+
+    <parameter name="gasDataPath" value="${REST_PATH}/inputData/gasFiles/" />
+
+    <searchPath value="$ENV{REST_INPUTDATA}/definitions/"/>
+	-->
+
+    <parameter name="mainDataPath" value="/storage/iaxo/iaxo-lab/analysis/trackAnalysis" />
+
+    <variable name="RUN_TYPE" value="RawToSignal" overwrite="false" />
+
+    <variable name="BL_MIN" value="20" overwrite="false" /> <!--50 in definitions.xml file -->
+    <variable name="BL_MAX" value="200" overwrite="false" /> <!--100 in definitions.xml  file -->
+
+    <variable name="INT_MIN" value="200" overwrite="false" /> 
+    <variable name="INT_MAX" value="500" overwrite="false" /> 
+
+    <variable name="NPOINTS" value="7" overwrite="false" /> 
+    <variable name="POINT_TH" value="2.2" overwrite="false" /> <!--3.2 in in definitions.xml file -->
+   	<variable name="SGNL_TH" value="1" overwrite="false" /> <!--2.9 in in definitions.xml file -->
+
+    <variable name="SAMPLING" value="20ns" overwrite="false" />
+    <variable name="PRESSURE" value="1.4" overwrite="false" /> <!--1.4 for Ar, 1.05 for Xe in CAST-->
+    <variable name="DRIFT_FIELD" value="134" overwrite="false" /> <!-- Units: V/cm-->
+	<variable name="DRIFT_VELOCITY" value="33.4296" overwrite="false" /> <!--33.4296 for Ar+2.3% iso; 18.9 for Xe+50%Ne+2.3%iso | Units: mm/us-->
+
+</globals>
+
+
+<TRestRun name="IAXOD0-2021" title="IAXOD0 2021 data taking" verboseLevel="silent">
+	<parameter name="experiment" value="IAXOD0"/>
+	<parameter name="runNumber" value="preserve"/>
+	<parameter name="runTag" value="preserve"/>
+	<parameter name="runType" value="${RUN_TYPE}"/>
+	<parameter name="runDescription" value=""/>
+	<parameter name="user" value="${USER}"/>
+	<parameter name="verboseLevel" value="0"/>
+	<parameter name="overwrite" value="off" />
+	<parameter name="inputFormat" value="R[fRunNumber]_[fParentRunNumber]_[fRunType]_[fRunTag]_[RunUser]_[Version].root" /> 
+	<parameter name="outputFileName" value="R[fRunNumber]_[fParentRunNumber]_${RUN_TYPE}_[fRunTag]_[RunUser]_[Version].root" />
+	<parameter name="readOnly" value="false" />
+
+
+	<addMetadata type="TRestDetectorReadout" name="iaxo_readout" file="/home/cristina/GitHub2/iaxo-readouts/readouts.root"/> 
+
+	<!--<TRestDetectorGas name="Argon-Isobutane 2.3Pct 10-10E3Vcm" pressure="1.4" file="server" />-->
+</TRestRun>
+
+	<TRestProcessRunner name="Signals" title="Signal to track analysis" > <!-- <verboseLevel="info"> -->
+
+		<parameter name="firstEntry" value="0" />
+		<parameter name="lastEntry" value="0" />
+		<parameter name="eventsToProcess" value="0" />
+
+
+    <!-- Signal to track reconstruction and track analysis -->
+    <addProcess type="TRestDetectorSignalToHitsProcess" name="signalToHits" value="ON" file="processes.rml"/>
+    <addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAna" value="ON" file="processes.rml"/>
+
+	<addProcess type="TRestDetectorHitsGaussAnalysisProcess" name="hitsAnaGauss" value="ON">
+		<parameter name="observable" value="all"/>
+			<parameter name="readoutChannelsX" value="120" />
+			<parameter name="readoutChannelsY" value="120" />
+			<parameter name="StartChPos" value="-30" />
+			<parameter name="EndChPos" value="30" />
+			<parameter name="Pitch" value="0.5" />
+	</addProcess>-
+
+    <addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAnaLite" value="ON" file="processes.rml" />
+    <addProcess type="TRestDetectorHitsToTrackProcess" name="hitsToTrack" value="ON" file="processes.rml"/>
+    <addProcess type="TRestTrackAnalysisProcess" name="tckAna" value="ON" file="processes.rml"/>
+
+
+
+	</TRestProcessRunner>
+
+	<addTask type="processEvents" value="ON" />
+    
+</TRestManager>
