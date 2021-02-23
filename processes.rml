@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 
 <processes>
-<!--
-<globals>
-    <variable name="NPOINTS" value="7" overwrite="false" /> 
-    <variable name="POINT_TH" value="2.2" overwrite="false" /> 
-    <variable name="SGNL_TH" value="1" overwrite="false" /> 
-    <variable name="BL_MIN" value="20" overwrite="false" /> 
-    <variable name="BL_MAX" value="200" overwrite="false" /> 
-    <variable name="INT_MIN" value="200" overwrite="false" /> 
-    <variable name="INT_MAX" value="500" overwrite="false" /> 
-</globals>
--->
+
+    <globals file="globals.xml"/> 
+  
 <!-- ···································································································· -->
 <!-- SIGNAL RELATED PROCESSES ··········································································· -->
 <!-- ···································································································· -->

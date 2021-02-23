@@ -2,6 +2,8 @@
 
 <TRestManager>
 
+<globals file="globals.xml"/>   
+
 <globals>
 	<!--
     <variable name="AUTO_DAQ_PATH" value="${HOME}/quickAnaREST" overwrite="false" /> 
@@ -17,24 +19,7 @@
 	-->
 
     <parameter name="mainDataPath" value="/storage/iaxo/iaxo-lab/analysis/trackAnalysis" />
-
     <variable name="RUN_TYPE" value="RawToSignal" overwrite="false" />
-
-    <variable name="BL_MIN" value="20" overwrite="false" /> <!--50 in definitions.xml file -->
-    <variable name="BL_MAX" value="200" overwrite="false" /> <!--100 in definitions.xml  file -->
-
-    <variable name="INT_MIN" value="200" overwrite="false" /> 
-    <variable name="INT_MAX" value="500" overwrite="false" /> 
-
-    <variable name="NPOINTS" value="7" overwrite="false" /> 
-    <variable name="POINT_TH" value="2.2" overwrite="false" /> <!--3.2 in in definitions.xml file -->
-   	<variable name="SGNL_TH" value="1" overwrite="false" /> <!--2.9 in in definitions.xml file -->
-
-    <variable name="SAMPLING" value="20ns" overwrite="false" />
-    <variable name="PRESSURE" value="1.4" overwrite="false" /> <!--1.4 for Ar, 1.05 for Xe in CAST-->
-    <variable name="DRIFT_FIELD" value="134" overwrite="false" /> <!-- Units: V/cm-->
-	<variable name="DRIFT_VELOCITY" value="33.4296" overwrite="false" /> <!--33.4296 for Ar+2.3% iso; 18.9 for Xe+50%Ne+2.3%iso | Units: mm/us-->
-
 </globals>
 
 
