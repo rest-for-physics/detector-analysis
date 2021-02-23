@@ -1,0 +1,13 @@
+<globals>
+    <variable name="NPOINTS" value="7" overwrite="false" /> 
+    <variable name="POINT_TH" value="2.2" overwrite="false" /> 
+    <variable name="SGNL_TH" value="1" overwrite="false" /> 
+    <variable name="BL_MIN" value="20" overwrite="false" /> 
+    <variable name="BL_MAX" value="200" overwrite="false" /> 
+    <variable name="INT_MIN" value="200" overwrite="false" /> 
+    <variable name="INT_MAX" value="500" overwrite="false" />
+    <variable name="SAMPLING" value="20ns" overwrite="false" />
+    <variable name="PRESSURE" value="1.4" overwrite="false" /> <!--1.4 for Ar, 1.05 for Xe -->
+    <variable name="DRIFT_FIELD" value="113" overwrite="false" /> <!-- Units: V/cm-->
+    <variable name="DRIFT_VELOCITY" value="3.34" overwrite="false" /> <!-- For Argon run in CAST | Units: mm/us-->
+</globals>
