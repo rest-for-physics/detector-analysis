@@ -32,7 +32,7 @@
 	<parameter name="user" value="${USER}"/>
 	<parameter name="verboseLevel" value="0"/>
 	<parameter name="overwrite" value="off" />
-	<parameter name="inputFormat" value="R[fRunNumber]_[fParentRunNumber]_[fRunType]_[fRunTag]_[RunUser]_[Version].root" /> 
+	<parameter name="inputFormat" value="" /> 
 	<parameter name="outputFileName" value="R[fRunNumber]_[fParentRunNumber]_${RUN_TYPE}_[fRunTag]_[RunUser]_[Version].root" />
 	<parameter name="readOnly" value="false" />
 
