@@ -36,8 +36,12 @@
 	<parameter name="outputFileName" value="R[fRunNumber]_[fParentRunNumber]_${RUN_TYPE}_[fRunTag]_[RunUser]_[Version].root" />
 	<parameter name="readOnly" value="false" />
 
-
-	<addMetadata type="TRestDetectorReadout" name="iaxo_readout" file="/home/cristina/GitHub2/iaxo-readouts/readouts.root"/> 
+    
+	<!--Insert the path of the readout file.
+	The readout file or the instruction on how to generate it can be found at
+	https://lfna.unizar.es/iaxo/iaxo-readouts
+	 -->
+	<addMetadata type="TRestDetectorReadout" name="iaxo_readout" file="readouts.root"/> 
 
 	<!--<TRestDetectorGas name="Argon-Isobutane 2.3Pct 10-10E3Vcm" pressure="1.4" file="server" />-->
 </TRestRun>
