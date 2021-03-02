@@ -38,7 +38,7 @@
 
     
 	<!--Insert the path of the readout file.
-	The readout file or the instruction on how to generate it can be found at
+	The readout file or the instructions to generate it can be found at
 	https://lfna.unizar.es/iaxo/iaxo-readouts
 	 -->
 	<addMetadata type="TRestDetectorReadout" name="iaxo_readout" file="readouts.root"/> 
