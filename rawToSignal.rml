@@ -34,7 +34,7 @@
 	<parameter name="verboseLevel" value="0"/>
 	<parameter name="overwrite" value="off" />
 
-	<parameter name="inputFormat" value=""/> -->
+	<parameter name="inputFormat" value="R[fRunNumber]_[fRunTag]_Vm_[Mesh]_Vd_[Drift]_Pr_[Pressure]_Gain_[Gain]_Shape_[Shaping]_Clock_[Clock]-[fParentRunNumber].aqs"/> -->
 	<parameter name="outputFile" value="R[fRunNumber]_[fParentRunNumber]_[fRunType]_[fRunTag]_[RunUser]_[Version].root" /> 
 	<parameter name="readOnly" value="false" />
 
