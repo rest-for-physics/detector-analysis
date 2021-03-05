@@ -2,51 +2,18 @@
 
 <TRestManager>
 
-<globals file="globals.xml"/>  
+        <!-- Definition of global variables -->
+        <globals file="globals.xml"/>  
 
-<globals>
-	<!--
-    <variable name="AUTO_DAQ_PATH" value="${HOME}/quickAnaREST" overwrite="false" /> 
-    <variable name="READOUT_FILE" value="readouts.root" overwrite="false" /> 
-    <variable name="READOUT_NAME" value="SingleModule" overwrite="false" /> 
-    <variable name="GAS_NAME" value="Neon-Isobutane 2Pct 10-10E3Vcm" overwrite="false" />
-    <variable name="PRESSURE" value="1" overwrite="false" /> 
-    <variable name="ELECTRONICS" value="MultiFEMINOS" overwrite="false" />
+        <globals>
+            <parameter name="mainDataPath" value="/storage/iaxo/iaxo-lab/analysis/signalAnalysis" />
+	    <variable name="RUN_TYPE" value="RawToSignal" overwrite="false" />    
+	</globals>
 
-    <parameter name="gasDataPath" value="${REST_PATH}/inputData/gasFiles/" />
+	<!-- Definition of TRestRun -->
+        <TRestRun file="run.xml"/>
 
-    <searchPath value="$ENV{REST_INPUTDATA}/definitions/"/>
-	-->
-
-    <parameter name="mainDataPath" value="/storage/iaxo/iaxo-lab/analysis/signalAnalysis" />
-    <variable name="RUN_TYPE" value="RawToSignal" overwrite="false" />
-    
-</globals>
-
-
-<TRestRun name="IAXOD0-2021" title="IAXOD0 2021 data taking" verboseLevel="silent">
-	<parameter name="experiment" value="IAXOD0"/>
-	<parameter name="runNumber" value="preserve"/>
-	<parameter name="runTag" value="preserve"/>
-	<parameter name="runType" value="${RUN_TYPE}"/>
-	<parameter name="runDescription" value=""/>
-	<parameter name="user" value="${USER}"/>
-	<parameter name="verboseLevel" value="0"/>
-	<parameter name="overwrite" value="off" />
-
-	<parameter name="inputFormat" value="R[fRunNumber]_[fRunTag]_Vm_[Mesh]_Vd_[Drift]_Pr_[Pressure]_Gain_[Gain]_Shape_[Shaping]_Clock_[Clock]-[fParentRunNumber].aqs"/> -->
-	<parameter name="outputFile" value="R[fRunNumber]_[fParentRunNumber]_[fRunType]_[fRunTag]_[RunUser]_[Version].root" /> 
-	<parameter name="readOnly" value="false" />
-
-    <!--Insert the path of the readout file.
-	The readout file or the instructions to generate it can be found at
-	https://lfna.unizar.es/iaxo/iaxo-readouts
-    -->
-	<addMetadata type="TRestDetectorReadout" name="iaxo_readout" file="readouts.root"/> 
-
-	<!--<TRestDetectorGas name="Argon-Isobutane 2.3Pct 10-10E3Vcm" pressure="1.4" file="server" />-->
-</TRestRun>
-
+        <!-- Raw signal processes -->
 	<TRestProcessRunner name="RawSignals" title="Raw processing and analysis" > <!-- <verboseLevel="info"> -->
 
 		<parameter name="firstEntry" value="0" />
@@ -57,7 +24,7 @@
 		<addProcess type="TRestRawMultiFEMINOSToSignalProcess" name="virtualDAQ" value="ON" verboseLevel="silent">
 			<parameter name="pedScript" value="ped"/>
 			<parameter name="runScript" value="run"/>
-			<parameter name="electronics" value="SingleFeminos"/>
+			<parameter name="electronics" value="${ELECTRONICS}"/>
 			<parameter name="fileFormat" value="SJTU" />
 		</addProcess>
 
@@ -76,31 +43,28 @@
 			<parameter name="observable" value="all"/>			
 		</addProcess>
 
-    <!-- Signal analysis -->
+                <!-- Signal analysis -->
+                <addProcess type="TRestRawSignalAnalysisProcess" name="sAna" value="ON" file="processes.rml"/>
+		<addProcess type="TRestRawSignalViewerProcess" name="rsViewer" value="OFF" file="processes.rml"/>
+		<addProcess type="TRestRawZeroSuppresionProcess" name="zS" value="ON" file="processes.rml"/>
+		<addProcess type="TRestDetectorSignalChannelActivityProcess" name="chActivity" value="ON" file="processes.rml"/>
 
-    <addProcess type="TRestRawSignalAnalysisProcess" name="sAna" value="ON" file="processes.rml"/>
-    <addProcess type="TRestRawSignalViewerProcess" name="rsViewer" value="OFF" file="processes.rml"/>
-    <addProcess type="TRestRawZeroSuppresionProcess" name="zS" value="ON" file="processes.rml"/>
-    <addProcess type="TRestDetectorSignalChannelActivityProcess" name="chActivity" value="ON" file="processes.rml"/>
+                <!-- Signal to track reconstruction and track analysis -->
+		<addProcess type="TRestDetectorSignalToHitsProcess" name="signalToHits" value="OFF" file="processes.rml"/>
+		<addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAna" value="OFF" file="processes.rml"/>
 
-    <!-- Signal to track reconstruction and track analysis -->
-    <addProcess type="TRestDetectorSignalToHitsProcess" name="signalToHits" value="OFF" file="processes.rml"/>
-    <addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAna" value="OFF" file="processes.rml"/>
-
-	<addProcess type="TRestDetectorHitsGaussAnalysisProcess" name="hitsAnaGauss" value="OFF">
-		<parameter name="observable" value="all"/>
+		<addProcess type="TRestDetectorHitsGaussAnalysisProcess" name="hitsAnaGauss" value="OFF">
+		        <parameter name="observable" value="all"/>
 			<parameter name="readoutChannelsX" value="120" />
 			<parameter name="readoutChannelsY" value="120" />
 			<parameter name="StartChPos" value="-30" />
 			<parameter name="EndChPos" value="30" />
 			<parameter name="Pitch" value="0.5" />
-	</addProcess>-
+	        </addProcess>-
 
-    <addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAnaLite" value="OFF" file="processes.rml" />
-    <addProcess type="TRestDetectorHitsToTrackProcess" name="hitsToTrack" value="OFF" file="processes.rml"/>
-    <addProcess type="TRestTrackAnalysisProcess" name="tckAna" value="OFF" file="processes.rml"/>
-
-
+		<addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAnaLite" value="OFF" file="processes.rml" />
+		<addProcess type="TRestDetectorHitsToTrackProcess" name="hitsToTrack" value="OFF" file="processes.rml"/>
+		<addProcess type="TRestTrackAnalysisProcess" name="tckAna" value="OFF" file="processes.rml"/>
 
 	</TRestProcessRunner>
 

@@ -1,4 +1,7 @@
 <globals>
+ <!-- File containing the global variable definitions of the analysis. -->
+  
+    <!-- Signal analysis-->
     <variable name="NPOINTS" value="7" overwrite="false" /> 
     <variable name="POINT_TH" value="2.2" overwrite="false" /> 
     <variable name="SGNL_TH" value="1" overwrite="false" /> 
@@ -6,8 +9,24 @@
     <variable name="BL_MAX" value="200" overwrite="false" /> 
     <variable name="INT_MIN" value="200" overwrite="false" /> 
     <variable name="INT_MAX" value="500" overwrite="false" />
+
+    <!-- Electronics -->
     <variable name="SAMPLING" value="20ns" overwrite="false" />
+    <variable name="ELECTRONICS" value="SingleFeminos" overwrite="false" />
+
+    <!-- Gas/field properties -->
     <variable name="PRESSURE" value="1.4" overwrite="false" /> <!--1.4 for Ar, 1.05 for Xe -->
     <variable name="DRIFT_FIELD" value="113" overwrite="false" /> <!-- Units: V/cm-->
     <variable name="DRIFT_VELOCITY" value="3.34" overwrite="false" /> <!-- For Argon run in CAST | Units: mm/us-->
+
+    <!-- Example of other variables and parameters that could be specified.
+		<variable name="AUTO_DAQ_PATH" value="${HOME}/quickAnaREST" overwrite="false" /> 
+       		<variable name="READOUT_FILE" value="readouts.root" overwrite="false" /> 
+		<variable name="READOUT_NAME" value="SingleModule" overwrite="false" /> 
+		<variable name="GAS_NAME" value="Neon-Isobutane 2Pct 10-10E3Vcm" overwrite="false" />
+		
+		<parameter name="gasDataPath" value="${REST_PATH}/inputData/gasFiles/" />
+		
+		<searchPath value="$ENV{REST_INPUTDATA}/definitions/"/>
+            -->
 </globals>
