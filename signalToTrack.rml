@@ -7,7 +7,7 @@
 
         <globals>
 	    <parameter name="mainDataPath" value="/storage/iaxo/iaxo-lab/analysis/trackAnalysis" />
-	    <variable name="RUN_TYPE" value="RawToSignal" overwrite="false" />
+	    <variable name="RUN_TYPE" value="SignalToTrack" overwrite="false" />
 	</globals>
 
 	<!-- Definition of TRestRun -->
