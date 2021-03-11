@@ -17,7 +17,7 @@
     <!-- Gas/field properties -->
     <variable name="PRESSURE" value="1.4" overwrite="false" /> <!--1.4 for Ar, 1.05 for Xe -->
     <variable name="DRIFT_FIELD" value="113" overwrite="false" /> <!-- Units: V/cm-->
-    <variable name="DRIFT_VELOCITY" value="3.34" overwrite="false" /> <!-- For Argon run in CAST | Units: mm/us-->
+    <variable name="DRIFT_VELOCITY" value="33.4" overwrite="false" /> <!-- For Argon run in CAST | Units: mm/us-->
 
     <!-- Example of other variables and parameters that could be specified.
 		<variable name="AUTO_DAQ_PATH" value="${HOME}/quickAnaREST" overwrite="false" /> 
