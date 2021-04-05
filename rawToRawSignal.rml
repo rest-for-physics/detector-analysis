@@ -27,7 +27,7 @@
 	The readout file or the instructions to generate it can be found at
 	https://lfna.unizar.es/iaxo/iaxo-readouts
     -->
-	<addMetadata type="TRestDetectorReadout" name="iaxo_readout" file="readouts.root"/>
+	<addMetadata type="TRestDetectorReadout" name="iaxo_readout_15" file="../iaxo-readouts/readouts.root"/>
 
 	<!--<TRestDetectorGas name="Argon-Isobutane 2.3Pct 10-10E3Vcm" pressure="1.4" file="server" />-->
 </TRestRun>
