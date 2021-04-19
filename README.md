@@ -2,6 +2,8 @@
 
 ATTENTION: work in progress, this documentation is not complete.
 
+## Configuration files
+
 Data analysis in REST in handled through configuration files.
 In this repository there are three rml files:
 - rawToSignal.rml: it contains the list of processes needed to analyze the acquired data up to the signal analysis (first part of the analysis);
