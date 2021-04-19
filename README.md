@@ -19,7 +19,8 @@ restManager --c CONFIG_FILE --f INPUT_FILE
 rawToSignal.rml takes as input a raw datafile; 
 signalToTrack.rml takes as input the output of rawToSignal.rml (a root file).
 
-**NOTES:** The full list of processes can be found
+**NOTES:** 
+
 The global.xml and run.xml files could be integrated directly in the rml files, but to simplify the management and for a clener organization it is preferable to keep them separated.
 
 The full list of processes can be found here:
