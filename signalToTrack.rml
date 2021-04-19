@@ -23,20 +23,8 @@
 		<!-- Signal to track reconstruction and track analysis -->
 		<addProcess type="TRestDetectorSignalToHitsProcess" name="signalToHits" value="ON" file="processes.rml"/>
 		<addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAna" value="ON" file="processes.rml"/>
-
-		<addProcess type="TRestDetectorHitsGaussAnalysisProcess" name="hitsAnaGauss" value="ON">
-		        <parameter name="observable" value="all"/>
-			<parameter name="readoutChannelsX" value="120" />
-			<parameter name="readoutChannelsY" value="120" />
-			<parameter name="StartChPos" value="-30" />
-			<parameter name="EndChPos" value="30" />
-			<parameter name="Pitch" value="0.5" />
-		</addProcess>-
-
-		<addProcess type="TRestDetectorHitsAnalysisProcess" name="hitsAnaLite" value="ON" file="processes.rml" />
 		<addProcess type="TRestDetectorHitsToTrackProcess" name="hitsToTrack" value="ON" file="processes.rml"/>
 		<addProcess type="TRestTrackAnalysisProcess" name="tckAna" value="ON" file="processes.rml"/>
-
 
 
 	</TRestProcessRunner>
