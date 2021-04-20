@@ -17,7 +17,7 @@ and two xml files:
 
 The analysis is lunched by the following command:
 
-'''restManager --c CONFIG_FILE --f INPUT_FILE'''
+```restManager --c CONFIG_FILE --f INPUT_FILE```
 
 rawToSignal.rml takes as input a raw datafile; 
 signalToTrack.rml takes as input the output of rawToSignal.rml (a root file).
