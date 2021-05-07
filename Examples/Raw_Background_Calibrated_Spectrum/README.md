@@ -34,4 +34,4 @@ CAVEATS:
 
 # Directory structure, input and output files
 
-![alt](template.png)
+![](Images/template.png)
