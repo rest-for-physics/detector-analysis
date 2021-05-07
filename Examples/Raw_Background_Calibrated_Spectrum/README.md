@@ -33,5 +33,6 @@ CAVEATS:
 - the number of bins fixed (48 bins), such as the energy range (0.4 - 10 keV).
 
 # Directory structure, input and output files
+![](Images/template.png)
 
-<img src="https://lfna.unizar.es/iaxo/iaxo-analysis/-/blob/master/Examples/Raw_Background_Calibrated_Spectrum/Images/template.png" width=50% height=50%>
+<img src="https://lfna.unizar.es/iaxo/iaxo-analysis/-/blob/master/Examples/Raw_Background_Calibrated_Spectrum/Images/template.png">
