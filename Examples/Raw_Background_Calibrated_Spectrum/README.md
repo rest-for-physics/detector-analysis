@@ -35,3 +35,4 @@ CAVEATS:
 # Directory structure, input and output files
 
 ![](Images/template.png | width=100)
+<img src="https://lfna.unizar.es/iaxo/iaxo-analysis/-/tree/master/Examples/Raw_Background_Calibrated_Spectrum/Images/template.png" width=50% height=50%>
