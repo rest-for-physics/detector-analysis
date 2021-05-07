@@ -34,4 +34,4 @@ CAVEATS:
 
 # Directory structure, input and output files
 
-![](Images/template.png width="200")
+![](Images/template.png | width=100)
