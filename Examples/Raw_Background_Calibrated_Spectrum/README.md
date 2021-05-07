@@ -33,3 +33,5 @@ CAVEATS:
 - the number of bins fixed (48 bins), such as the energy range (0.4 - 10 keV).
 
 # Directory structure, input and output files
+
+![alt](template.png)
