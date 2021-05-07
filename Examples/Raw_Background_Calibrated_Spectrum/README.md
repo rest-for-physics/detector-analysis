@@ -1,6 +1,7 @@
 # Description
 
-!!! Documentation nnot complete.
+!!! Documentation not complete.
+
 !!! Cross check of the results still ongoing.
 
 This example provides an automatic procedure to compute the raw background calibrated spectrum, starting from a list of CAST data files.
