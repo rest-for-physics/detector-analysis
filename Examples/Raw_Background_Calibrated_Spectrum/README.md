@@ -1,4 +1,4 @@
-#Description
+# Description
 
 !!! Documentation nnot complete.
 !!! Cross check of the results still ongoing.
@@ -6,7 +6,7 @@
 This example provides an automatic procedure to compute the raw background calibrated spectrum, starting from a list of CAST data files.
 Template.tar.gz contains all the necessary files to perform the analysis that is handled by the python script Run_Analysis.py
 
-#Run the analysis
+#  Run the analysis
 Before running the analysis (after uncompressing Template.tar.gz that can be renamed as preferred), the following things must be specified:
 - the path where the data are stored in Run_Analysis.py;
 - the path of the readout in Raw_to_Track_Analysis/run.xml;
@@ -30,4 +30,4 @@ CAVEATS:
 - the histoSumCal.C does not compute correctly the total time yet if the .
 - the number of bins fixed (48 bins), such as the energy range (0.4 - 10 keV).
 
-#Directory structure, input and output files
+# Directory structure, input and output files
