@@ -14,7 +14,8 @@ Before running the analysis (after uncompressing Template.tar.gz that can be ren
 - the file list you want to analyze (inside list_CAST_run.txt).
 
 To run the analysis just run the command:
-python Run_Analysis.py
+
+```python Run_Analysis.py```
 
 The main steps of the script are:
 - runs the first part of the analysis (raw to signal);
