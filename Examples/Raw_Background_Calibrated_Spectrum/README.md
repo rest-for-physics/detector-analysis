@@ -4,7 +4,7 @@
 
 !!! Cross check of the results still ongoing.
 
-This example provides an automatic procedure to compute the raw background calibrated spectrum, starting from a list of CAST data files.
+This example provides an automatic procedure to compute the raw background calibrated spectrum (both for the full detector area and the )10 mm inner region), starting from a list of CAST data files.
 Template.tar.gz contains all the necessary files to perform the analysis that is handled by the python script Run_Analysis.py
 
 The main steps of the script are:
@@ -33,6 +33,8 @@ CAVEATS:
 - the number of bins fixed (48 bins), such as the energy range (0.4 - 10 keV).
 
 # Directory structure, input and output files
+The following image shows the folder structure once the file Template.tar.gz has been uncompressed. Files in the red dotted box are those needed to be modified by the user following the above mentioned instructions. 
+
 ![](Images/template.png)
 
-<img src="https://lfna.unizar.es/iaxo/iaxo-analysis/-/blob/master/Examples/Raw_Background_Calibrated_Spectrum/Images/template.png">
+
