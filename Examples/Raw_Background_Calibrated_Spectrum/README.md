@@ -17,7 +17,7 @@ The main steps of the script are:
 - computes the calibrated bg spectrum.
 
 #  Run the analysis
-Before running the analysis (after uncompressing Template.tar.gz that can be renamed as preferred), the following things must be specified:
+Before running the analysis (after uncompressing Template.tar.gz that can be renamed as preferred), the following items must be specified:
 - the path where the data are stored in Run_Analysis.py;
 - the path of the readout in Raw_to_Track_Analysis/run.xml;
 - the file list you want to analyze (inside list_CAST_run.txt).
@@ -35,6 +35,9 @@ CAVEATS:
 # Directory structure, input and output files
 The following image shows the folder structure once the file Template.tar.gz has been uncompressed. Files in the red dotted box are those needed to be modified by the user following the above mentioned instructions. 
 
-![](Images/template.png)
+![](Images/template_structure.png)
 
+The following image shows the output files.
+
+![](Images/output_files.png)
 
