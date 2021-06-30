@@ -32,8 +32,8 @@ The analysis steps are briefly described (providing an example of CAST data anal
 CAVEATS:
 - the structure of the directories cannot be modified;
 - in the file list you want to analyze each calibration file must be placed right after the corresponding background file;
-- the histoSumCal.C does not compute correctly the total time yet if the .
-- the number of bins fixed (48 bins), such as the energy range (0.4 - 10 keV).
+- if there are many subruns for one run, they must be merged in a single file, that in turn must be named accordingly to the following format: R[fRunNumber]_[fRunTag]_Vm_[Mesh]_Vd_[Drift]_Pr_[Pressure]_Gain_[Gain]_Shape_[Shaping]_Clock_[Clock]-[fParentRunNumber].aqs (example: R10418_Background_23hr_Vm_340_Vd_113_Pr_1.4_Gain_0x1_Shape_0xD_Clock_0x02-000.aqs).
+- the number of bins is fixed (48 bins), such as the energy range (0.4 - 10 keV) where the background level is computed, and the energy range for plots (0 - 12 keV).
 
 # Directory structure, input and output files
 The following image shows the folder structure once the file Template.tar.gz has been uncompressed. Files in the red dotted box are those needed to be modified by the user following the above mentioned instructions. 
